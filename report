@@ -1,0 +1,72 @@
+\documentclass[a4paper, 12pt, final]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[french]{varioref}
+\usepackage{layout} 
+\usepackage{listings} 
+\usepackage[comma,authoryear]{natbib}
+\usepackage{graphicx}
+
+\title{ ELE 470 - Button Fun }
+
+\author{ Laïla Atrmouh }
+
+\date{Tuesday 25 September 2012}
+
+\begin{document}
+
+\maketitle  
+   
+\rule[0.5ex]{\textwidth}{0.1mm}
+
+\section{Introduction}  
+The purpose of the \emph{"Button Fun"} Lab is to familiarize with Objective-C and events handlers with two buttons and a label. When we press on a button, the value of the label changes. \\
+
+\section{Methods}
+Following the instructions on the chapter 3 of the textbook, I developed a simple-view application, composed of 4 main elements:
+\begin{itemize}
+\item A label
+\item A button \emph{"Left"}
+\item A button \emph{"Right"}
+\item An UImageView
+\end{itemize}
+\hspace{2cm}
+
+The icon of the application was also customized, using the property file. Two simple icons were added to the project, with a resolution of 57*57 px for the first one, and 114*114 px for the second one. 
+I decided to have an organized repository code by separating images and source code with the creation of groups. Groups can be assimilated to packages, they help to organize the code.  
+In order to optimize the code, one single method manages the event triggered by the two buttons. The both buttons were linked to the method "buttonPressed" using drag and drop from xib file to the header file "BIDViewController.h" . We use the "titleForState" method to get the name of the button that raised the event. 
+\newpage
+\begin{lstlisting}
+- (IBAction)buttonPressed:(UIButton *)sender {
+    NSString *title = [sender titleForState:UIControlStateNormal];
+    statusText.text = [NSString stringWithFormat:@"%@ button pressed.", title];
+}
+\end{lstlisting} 
+
+\section{Results}
+At the end, we have an application with two interactive buttons. Here are three screens of the application :\\ 
+\begin{figure}[!h] %on ouvre l'environnement figure
+\centering
+\includegraphics[width=4cm]{1.jpg} %ou image.png, .jpeg etc.
+\caption{First view of the application, without interaction from the user} %la légende
+\label{api} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure 
+ 
+\begin{figure}[!h] %on ouvre l'environnement figure
+\centering
+\includegraphics[width=5cm]{2.jpg} %ou image.png, .jpeg etc.
+\caption{Second view of the application, after pushing the left button} %la légende
+\label{api} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+
+ 
+\begin{figure}[!h] %on ouvre l'environnement figure
+\centering
+\includegraphics[width=5cm]{3.jpg} %ou image.png, .jpeg etc.
+\caption{Third view of the application, after pushing the right button} %la légende
+\label{api} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+ 
+
+\end{document}

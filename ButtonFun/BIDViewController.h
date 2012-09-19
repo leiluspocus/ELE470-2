@@ -10,4 +10,10 @@
 
 @interface BIDViewController : UIViewController
 
+// Empty label
+@property (weak, nonatomic) IBOutlet UILabel *statusText;
+
+// Handler event
+- (IBAction)buttonPressed:(UIButton *)sender;
+
 @end

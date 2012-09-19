@@ -13,22 +13,19 @@
 @end
 
 @implementation BIDViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
+@synthesize statusText;
+ 
 
 - (void)viewDidUnload
 {
+    [self setStatusText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+ 
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+- (IBAction)buttonPressed:(UIButton *)sender {
+    NSString *title = [sender titleForState:UIControlStateNormal];
+    statusText.text = [NSString stringWithFormat:@"%@ button pressed.", title];
 }
-
 @end
